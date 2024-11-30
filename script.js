@@ -13,17 +13,20 @@ let addMore = true;
     let lastName = prompt("Enter employee's last name:");
     let salary = parseFloat(prompt("Enter the employee salary amount:"));
 
+    //assigning values to variables inside an object
     let employee = {
         firstName: firstName,
         lastName: lastName, 
         salary: salary
     }
 
+    //pushing the variables into an array 
     employeesArray.push(employee);
 
+    //prompt to break the loop
     addMore = confirm("Do you want to add another employee?");
 
-
+    
   }
   return employeesArray;
 
@@ -38,11 +41,9 @@ for (let i = 0; i < employeesArray.length; i++) {
     totalSalary += employeesArray[i].salary;
 }
 
-//console.log(totalSalary);
-const averageSalary = totalSalary / employeesArray.length;
-
+let averageSalary = totalSalary / employeesArray.length;
 console.log(`The average salary between our ${employeesArray.length} employee(s) is $${averageSalary.toFixed(2)}`);
-console.log(typeof averageSalary);
+
 }
 
 
