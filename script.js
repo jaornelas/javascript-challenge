@@ -13,6 +13,7 @@ let addMore = true;
     let lastName = prompt("Enter employee's last name:");
     let salary = parseFloat(prompt("Enter the employee salary amount:"));
 
+
     //assigning values to variables inside an object
     let employee = {
         firstName: firstName,
@@ -26,25 +27,46 @@ let addMore = true;
     //prompt to break the loop
     addMore = confirm("Do you want to add another employee?");
 
-    
   }
   return employeesArray;
 
-}
+};
+
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
+
 let totalSalary = 0;
+
+//Display nothing if no input
+if (employeesArray.length === 0) {
+  console.log("No employees to calculate average salary.");
+  return; 
+}
 
 for (let i = 0; i < employeesArray.length; i++) {
     totalSalary += employeesArray[i].salary;
 }
 
-let averageSalary = totalSalary / employeesArray.length;
-console.log(`The average salary between our ${employeesArray.length} employee(s) is $${averageSalary.toFixed(2)}`);
 
-}
+totalSalary = employeesArray.reduce((acc, employee) => acc + (isNaN(employee.salary) ? 0 : employee.salary), 0);
+const averageSalary = totalSalary / employeesArray.length;
+
+// Rounding to two decimal places
+const averageSalaryWithTwoDecimals = averageSalary.toFixed(2);
+
+console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSalaryWithTwoDecimals}`);
+
+
+
+// let averageSalary = totalSalary / employeesArray.length;
+// //console.log(`the calculated average salary is ${averageSalary}`);  //displays calculated averageSalary no format. defaults to whole integer if given integer
+
+// console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSalary.toFixed(2)}`);
+// console.log(typeof averageSalary);
+
+};
 
 
 
